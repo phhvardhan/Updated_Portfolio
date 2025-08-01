@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hema Harsha Vardhan Peela - Data Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a192f;
+            color: #8892b0;
+        }
+        /* Spotlight Cursor Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            background: radial-gradient(
+                circle at var(--cursor-x) var(--cursor-y),
+                rgba(29, 78, 216, 0.15) 0%,
+                rgba(29, 78, 216, 0) 20%
+            );
+            transition: background 0.1s ease;
+        }
+
+        .text-lightest-slate { color: #ccd6f6; }
+        .text-slate { color: #8892b0; }
+        .text-green { color: #64ffda; }
+        .bg-light-navy { background-color: #112240; }
+        .font-mono { font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace; }
+
+        ::selection {
+            background: #233554;
+            color: #ccd6f6;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            font-size: 1.5rem; /* Tailwind text-2xl */
+            font-size: 1.875rem; /* Tailwind md:text-3xl */
+            color: #ccd6f6; /* Tailwind text-lightest-slate */
+            font-weight: 600; /* Tailwind font-semibold */
+            white-space: nowrap;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            position: relative;
+            top: 2px;
+            width: 100%;
+            max-width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            background-color: #233554;
+        }
+
+        .project-card {
+            background-color: #112240;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+            border-left: 2px solid #64ffda;
+        }
+        
+        .tab-content {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Typing animation cursor */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 2.5rem; /* Match text size */
+            background-color: #64ffda;
+            animation: blink 0.7s infinite;
+            margin-left: 8px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Particle background */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body class="text-slate-300">
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-black/30 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-800/20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green font-mono">H</a>
+            <div class="hidden md:flex items-center space-x-6 font-mono text-sm">
+                <a href="#about" class="hover:text-green transition-colors"><span class="text-green">01.</span> About</a>
+                <a href="#experience" class="hover:text-green transition-colors"><span class="text-green">02.</span> Experience</a>
+                <a href="#projects" class="hover:text-green transition-colors"><span class="text-green">03.</span> Work</a>
+                <a href="#contact" class="hover:text-green transition-colors"><span class="text-green">04.</span> Contact</a>
+                <a href="Hema_Harsha_Vardhan_Peela_Data_Engineer_Updated.pdf"
+   target="_blank" rel="noopener noreferrer"
+   class="border border-green text-green rounded-md px-4 py-2 hover:bg-green/10 transition-all">
+   Resume
+</a>
+            <button id="mobile-menu-button" class="md:hidden text-green">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+             <a href="#about" class="block py-2 hover:text-green">About</a>
+             <a href="#experience" class="block py-2 hover:text-green">Experience</a>
+             <a href="#projects" class="block py-2 hover:text-green">Projects</a>
+             <a href="#contact" class="block py-2 hover:text-green">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 md:px-24 py-12">
+
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex flex-col justify-center -mt-20">
+            <div data-aos="fade-up">
+                <p class="text-green font-mono mb-4">Hi, my name is</p>
+                <h1 class="text-4xl md:text-7xl font-bold text-lightest-slate mb-4">Hema Harsha Vardhan Peela.</h1>
+                <h2 class="text-4xl md:text-7xl font-bold text-slate mb-10 h-20 md:h-24">
+                    <span id="typing-text"></span><span class="typing-cursor"></span>
+                </h2>
+                <p class="text-lg max-w-xl mb-16">
+                    I'm a Data Engineer specializing in building robust, scalable data pipelines and transforming complex datasets into actionable business intelligence.
+                </p>
+                <div>
+                  <a href="#projects" class="text-green border border-green rounded-md px-8 py-4 font-mono hover:bg-green/10 transition-all">
+                      Check out my work!
+                  </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-24">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="grid md:grid-cols-5 gap-12 mt-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="md:col-span-3 space-y-4 text-lg">
+                    <p>Hello! I'm a passionate Data Engineer with a knack for turning raw data into meaningful stories. My journey into data began with a fascination for how structured information could solve real-world problems. Today, I have the privilege of designing, building, and maintaining data infrastructure that powers critical business decisions.</p>
+                    <p>My experience includes optimizing query performance by 40% and enhancing data quality. I thrive in collaborative environments and am always eager to learn new technologies.</p>
+                     <ul class="grid grid-cols-2 gap-2 font-mono text-sm">
+                        <li class="flex items-center" data-aos="fade-right" data-aos-delay="200"><span class="text-green mr-2">▹</span>Python (PySpark)</li>
+                        <li class="flex items-center" data-aos="fade-right" data-aos-delay="300"><span class="text-green mr-2">▹</span>AWS (Glue, Redshift)</li>
+                        <li class="flex items-center" data-aos="fade-right" data-aos-delay="400"><span class="text-green mr-2">▹</span>GCP (BigQuery, Dataflow)</li>
+                        <li class="flex items-center" data-aos="fade-right" data-aos-delay="500"><span class="text-green mr-2">▹</span>SQL & NoSQL</li>
+                        <li class="flex items-center" data-aos="fade-right" data-aos-delay="600"><span class="text-green mr-2">▹</span>Airflow</li>
+                        <li class="flex items-center" data-aos="fade-right" data-aos-delay="700"><span class="text-green mr-2">▹</span>Tableau & Power BI</li>
+                    </ul>
+                </div>
+                 <div class="md:col-span-2 relative h-80" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="group w-full h-full">
+                        <div class="absolute w-full h-full rounded-md border-2 border-green top-4 left-4 group-hover:top-2 group-hover:left-2 transition-all duration-300"></div>
+                        <img src="Photo-1.jpeg" alt="Hema Harsha Vardhan Peela" class="absolute w-full h-full object-cover rounded-md z-10 grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24">
+             <h2 class="section-title" data-aos="fade-up">Where I've Worked</h2>
+             <div class="max-w-3xl mx-auto mt-8 flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="100">
+                <!-- Tabs -->
+                <div class="flex md:flex-col mb-6 md:mb-0 border-b-2 md:border-b-0 md:border-l-2 border-slate-700">
+                    <button class="tab-button active w-full text-left px-4 py-3 font-mono text-sm" data-target="yourbook">YourBook</button>
+                    <button class="tab-button w-full text-left px-4 py-3 font-mono text-sm" data-target="xpress">Xpress Global</button>
+                </div>
+                <!-- Tab Content -->
+                <div class="md:pl-6">
+                    <div id="yourbook" class="tab-content">
+                        <h3 class="text-xl font-medium text-lightest-slate">Data & Cloud Engineer <span class="text-green">@ YourBook Team</span></h3>
+                        <p class="font-mono text-sm mb-4">Nov 2024 - May 2025</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start"><span class="text-green mr-3 mt-1">▹</span>Redesigned cloud warehouse schemas (PostgreSQL, Redshift), boosting query performance by 40%.</li>
+                            <li class="flex items-start"><span class="text-green mr-3 mt-1">▹</span>Developed and maintained systems for the Analytics Infrastructure & Data Lake.</li>
+                            <li class="flex items-start"><span class="text-green mr-3 mt-1">▹</span>Built Power BI/SQL dashboards, reducing quality escalations by 25%.</li>
+                        </ul>
+                    </div>
+                    <div id="xpress" class="tab-content hidden">
+                        <h3 class="text-xl font-medium text-lightest-slate">Data Engineer <span class="text-green">@ Xpress Global</span></h3>
+                        <p class="font-mono text-sm mb-4">Apr 2021 - May 2023</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start"><span class="text-green mr-3 mt-1">▹</span>Built and maintained robust ETL/ELT pipelines for large, diverse datasets.</li>
+                            <li class="flex items-start"><span class="text-green mr-3 mt-1">▹</span>Optimized data models and schemas (PostgreSQL, Redshift) for better accessibility.</li>
+                            <li class="flex items-start"><span class="text-green mr-3 mt-1">▹</span>Deployed scalable data processing jobs using PySpark and AWS services.</li>
+                        </ul>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+            <h2 class="section-title" data-aos="fade-up">Things I've Built</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                
+                <div class="project-card p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="far fa-folder text-4xl text-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-lightest-slate mb-2">
+                        <a href="#" class="hover:text-green transition-colors duration-300">Sales Performance Optimization</a>
+                    </h3>
+                    <p class="flex-grow">An automated ETL pipeline and Tableau dashboard to track sales KPIs, improving forecast accuracy by 25%.</p>
+                    <div class="font-mono text-xs mt-4 text-slate">
+                        AWS Glue &nbsp; Lambda &nbsp; Python &nbsp; Tableau
+                    </div>
+                </div>
+
+                <div class="project-card p-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="far fa-folder text-4xl text-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-lightest-slate mb-2">
+                        <a href="https://github.com/phhvardhan/Android-API-DataPipeline" target="_blank" rel="noopener noreferrer" class="hover:text-green transition-colors duration-300">
+                            Android API DataPipeline
+                        </a>
+                    </h3>
+                    <p class="flex-grow">Engineered a pipeline to collect, process, and store Android app data from APIs, enabling efficient data analysis and reporting.</p>
+                    <div class="font-mono text-xs mt-4 text-slate">
+                        Python &nbsp; API &nbsp; Data Pipeline
+                    </div>
+                </div>
+
+                <div class="project-card p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="far fa-folder text-4xl text-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-lightest-slate mb-2">
+                        <a href="https://github.com/phhvardhan/How-transformers-do-math" target="_blank" rel="noopener noreferrer" class="hover:text-green transition-colors duration-300">
+                            How Transformers Do Math
+                        </a>
+                    </h3>
+                    <p class="flex-grow">Explored how transformer models approach arithmetic and mathematical reasoning with code and experiments.</p>
+                    <div class="font-mono text-xs mt-4 text-slate">
+                        Python &nbsp; Transformers &nbsp; Machine Learning
+                    </div>
+                </div>
+
+                <div class="project-card p-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="far fa-folder text-4xl text-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-lightest-slate mb-2">
+                        <a href="https://github.com/phhvardhan/Result-Analysis-Project" target="_blank" rel="noopener noreferrer" class="hover:text-green transition-colors duration-300">
+                            Result Analysis Project
+                        </a>
+                    </h3>
+                    <p class="flex-grow">A web app that analyzes student performance and visualizes results to identify trends and support better decision-making.</p>
+                    <div class="font-mono text-xs mt-4 text-slate">
+                        ReactJS &nbsp; Django &nbsp; Data Visualization
+                    </div>
+                </div>
+
+                <div class="project-card p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="far fa-folder text-4xl text-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-lightest-slate mb-2">
+                        <a href="https://github.com/phhvardhan/Garbage_Data_Filtering" target="_blank" class="hover:text-green transition-colors duration-300">Social Media Data Filtering</a>
+                    </h3>
+                    <p class="flex-grow">Developed a model using PySpark and ML to filter spam and improve content quality by 45%.</p>
+                    <div class="font-mono text-xs mt-4 text-slate">
+                        PySpark &nbsp; Scikit-learn &nbsp; Pandas
+                    </div>
+                </div>
+
+                <div class="project-card p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-between items-center mb-4">
+                        <i class="far fa-folder text-4xl text-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-lightest-slate mb-2">
+                        <a href="#" class="hover:text-green transition-colors duration-300">Customer Segmentation</a>
+                    </h3>
+                    <p class="flex-grow">Implemented a K-Means model in R that led to a 30% reduction in customer churn.</p>
+                    <div class="font-mono text-xs mt-4 text-slate">
+                        R &nbsp; K-Means &nbsp; Machine Learning
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 text-center max-w-xl mx-auto">
+            <h2 class="font-mono text-green" data-aos="fade-up">04. What's Next?</h2>
+            <h3 class="text-5xl font-bold text-lightest-slate my-4" data-aos="fade-up" data-aos-delay="100">Get In Touch</h3>
+            <p data-aos="fade-up" data-aos-delay="200">
+                I'm currently seeking new opportunities and my inbox is always open. Whether you have a question, a project, or just want to connect, I'll get back to you!
+            </p>
+            <div data-aos="fade-up" data-aos-delay="300">
+              <a href="mailto:hemaharshavardhanpeela@gmail.com" class="inline-block mt-8 text-green border border-green rounded-md px-8 py-4 font-mono hover:bg-green/10 transition-all">
+                  Say Hello
+              </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-6 text-center">
+        <div class="flex justify-center space-x-6 text-xl text-slate">
+            <a href="https://github.com/phhvardhan" target="_blank" class="hover:text-green transition-transform hover:-translate-y-1"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/hemaharshavardhanpeela/" target="_blank" class="hover:text-green transition-transform hover:-translate-y-1"><i class="fab fa-linkedin"></i></a>
+            <!-- <a href="https://phhvardhan.vercel.app/" target="_blank" class="hover:text-green transition-transform hover:-translate-y-1"><i class="fas fa-globe"></i></a> -->
+        </div>
+        <p class="font-mono text-xs text-slate mt-4">&copy; 2024 Hema Harsha Vardhan Peela. Built with passion.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // --- Initialize AOS on DOMContentLoaded ---
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+        });
+
+        // --- Mobile menu toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        }
+        
+        // --- Experience Tabs ---
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        let activeTab = document.querySelector('.tab-button.active');
+        const activeLine = document.createElement('div');
+        
+        activeLine.style.position = 'absolute';
+        activeLine.style.transition = 'all 0.3s ease-in-out';
+        
+        function setupTabs() {
+            const parent = tabButtons[0].parentNode;
+            parent.style.position = 'relative';
+            parent.appendChild(activeLine);
+
+            if (window.innerWidth >= 768) { // Desktop view (left border)
+                activeLine.style.width = '2px';
+                activeLine.style.height = `${activeTab.offsetHeight}px`;
+                activeLine.style.top = `${activeTab.offsetTop}px`;
+                activeLine.style.left = '0';
+                activeLine.style.backgroundColor = '#64ffda';
+            } else { // Mobile view (bottom border)
+                activeLine.style.height = '2px';
+                activeLine.style.width = `${activeTab.offsetWidth}px`;
+                activeLine.style.top = `${activeTab.offsetHeight}px`;
+                activeLine.style.left = `${activeTab.offsetLeft}px`;
+                activeLine.style.backgroundColor = '#64ffda';
+            }
+        }
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetContent = document.getElementById(button.dataset.target);
+                
+                tabButtons.forEach(btn => btn.classList.remove('active', 'text-green'));
+                tabContents.forEach(content => content.classList.add('hidden'));
+                
+                button.classList.add('active', 'text-green');
+                if (targetContent) {
+                    targetContent.classList.remove('hidden');
+                }
+                
+                if (window.innerWidth >= 768) {
+                    activeLine.style.top = `${button.offsetTop}px`;
+                    activeLine.style.height = `${button.offsetHeight}px`;
+                } else {
+                    activeLine.style.left = `${button.offsetLeft}px`;
+                    activeLine.style.width = `${button.offsetWidth}px`;
+                }
+                activeTab = button;
+            });
+        });
+
+        window.addEventListener('resize', setupTabs);
+        document.querySelector('.tab-button.active').classList.add('text-green');
+        setupTabs();
+
+        // --- Typing Effect ---
+        const typingText = document.getElementById('typing-text');
+        const text = "I build solutions with data.";
+        let index = 0;
+        function type() {
+            if (index < text.length) {
+                typingText.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+        setTimeout(type, 1000); // Start typing after a delay
+
+        // --- Spotlight Cursor Effect ---
+        document.addEventListener('mousemove', (e) => {
+            document.body.style.setProperty('--cursor-x', e.clientX + 'px');
+            document.body.style.setProperty('--cursor-y', e.clientY + 'px');
+        });
+
+        // --- Particle Background ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray;
+
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * .4) - .2;
+                let directionY = (Math.random() * .4) - .2;
+                let color = 'rgba(100, 255, 218, 0.3)';
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+        }
+        
+        initParticles();
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            initParticles();
+        });
+
+    </script>
+</body>
+</html>
