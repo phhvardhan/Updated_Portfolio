@@ -1,45 +1,37 @@
-# Hema Harsha Vardhan Peela – Data Engineer Portfolio
+# Hema Harsha Vardhan Peela, AI/ML Engineer
 
-Welcome to my personal portfolio!  
-This website showcases my journey as a Data Engineer, my technical projects, and my professional background.
+Personal portfolio: selected work, experience, and skills.
 
-## 🚀 Features
+**Live:** https://phhvardhan.github.io/Updated_Portfolio/
 
-- Clean, modern UI with Tailwind CSS and smooth animations
-- Showcases my key data engineering projects with links to GitHub
-- Download/view my resume directly from the site
-- Responsive design for all devices
-- Contact section for easy connection
+## About me
 
-## 🛠️ Tech Stack
+AI/ML Engineer in Austin, TX with 4+ years across data and AI engineering, including 1.5+ years building LLM-powered agents, multi-agent systems, and production RAG pipelines in Python. Technical lead for two AI agent products at Johnson & Johnson (AWS Bedrock AgentCore, Azure OpenAI). Previously served 5M+ monthly LLM inferences at Wells Fargo, with an evaluation framework that cut hallucinations by ~30%.
 
-- **Frontend:** HTML5, Tailwind CSS, JavaScript
-- **Icons & Fonts:** FontAwesome, Google Fonts (Poppins)
-- **Animations:** AOS (Animate On Scroll)
-- **Deployment:** Works great on Vercel, Netlify, GitHub Pages, or any static host
+## About the site
 
-## 📂 Structure
-/
-├── index.html
-├── Hema_Harsha_Vardhan_Peela_Data_Engineer_Updated.pdf
-├── Photo-1.jpeg
-├── README.md
-└── (optional) assets/
+- Single static page (`index.html`): plain HTML and CSS with a little vanilla JavaScript, no build step
+- Selected-work case studies with animated architecture diagrams
+- Light and dark themes that follow the system setting
+- Respects reduced-motion preferences
 
-## 🌟 Live Demo
+## Structure
 
-**[View my portfolio](https://hemaharsha.vercel.app)**
+```
+index.html
+Hema_Harsha_Vardhan_Peela_Resume.pdf
+README.md
+.github/workflows/static.yml   # deploys to GitHub Pages on push to main
+```
 
-## 📬 Contact
+## Deployment
 
-Feel free to connect with me:  
-[hemaharshavardhanpeela@gmail.com](mailto:hemaharshavardhanpeela@gmail.com)
+Pushing to `main` publishes the site through GitHub Pages.
 
----
+## Contact
 
-## 📝 License
+[Hpeela5@gmail.com](mailto:Hpeela5@gmail.com) · [LinkedIn](https://www.linkedin.com/in/hemaharshavardhanpeela/) · [GitHub](https://github.com/phhvardhan)
 
-This project is open for learning and inspiration.  
-Please don’t claim it as your own.
+## License
 
----
+Open for learning and inspiration. Please don't claim it as your own.
