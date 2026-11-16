@@ -111,6 +111,7 @@
     .case p + p { margin-top: 14px; }
     .case .body { color: var(--muted); }
     .case .body strong { color: var(--ink); font-weight: 500; }
+    .case .repo { display: inline-block; margin-top: 20px; font-size: 15px; font-weight: 500; }
     .figures {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
       margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--rule);
@@ -151,14 +152,6 @@
     .row h3 { font-size: 17px; font-weight: 600; }
     .row h3 span { font-weight: 400; color: var(--muted); }
     .row p { color: var(--muted); margin-top: 4px; max-width: 62ch; }
-
-    /* Side project */
-    .side { margin-top: 40px; max-width: 68ch; }
-    .side h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.15; }
-    .side .stack { font-size: 14px; color: var(--muted); margin: 6px 0 14px; }
-    .side p { color: var(--muted); }
-    .side p + p { margin-top: 14px; }
-    .side p strong { color: var(--ink); font-weight: 500; }
 
     /* Contact */
     .contact h2 { font-size: clamp(40px, 6vw, 72px); }
@@ -341,7 +334,7 @@
   <section id="work">
     <div class="wrap">
       <h2>Selected work</h2>
-      <p class="intro">Three systems I've built or led, and how each one is put together.</p>
+      <p class="intro">Four systems I've built or led, and how each one is put together.</p>
 
       <article class="case">
         <div>
@@ -394,19 +387,14 @@
           <p class="what">It reads requirements from documents, recordings, and text, then recommends the SDLC agents to run on them.</p>
           <div class="body">
             <p>
-              I built the Python, FastAPI, and Azure OpenAI backend. The specialist agents share a base
-              class, a registry, and one API, so adding an agent takes
-              <strong>one implementation file and one registry entry</strong>.
+              I built the Python, FastAPI, and Azure OpenAI backend. Specialist agents share a base class,
+              a registry, and one API, so adding one takes <strong>one file and one registry entry</strong>.
+              An AI router picks the best-fit agent and backs the choice with verbatim source quotes, each checked against the input.
             </p>
             <p>
-              An AI router recommends the best-fit agent with its reasoning and verbatim source quotes,
-              and every quote is checked against the input. LLM outputs are grounded in the source, which
-              removed invented names, dates, and figures; test counts are computed in code, not trusted from the model.
-            </p>
-            <p>
-              Requirement IDs (REQ, US, DES, TC) carry through <strong>Minutes → User Stories → Design → Test Cases</strong>,
-              so every test case traces back to its source requirement. Human-in-the-loop review adds
-              section-level edit suggestions, open-question resolution, and recorded sign-off before export.
+              Outputs are grounded in the source, which removed invented names, dates, and figures, and test counts
+              are computed in code. Requirement IDs carry through <strong>minutes → stories → design → tests</strong>,
+              with human-in-the-loop sign-off before export.
             </p>
           </div>
           <dl class="figures">
@@ -484,6 +472,46 @@
           <figcaption>Quality regressions get caught before they ship</figcaption>
         </figure>
       </article>
+
+      <article class="case">
+        <div>
+          <p class="meta">Personal project · 2026 · Solo</p>
+          <h3>Signal Desk, an autonomous paper-trading agent</h3>
+          <p class="what">A trading agent built on Claude Agent Skills and MCP, where every safety limit is enforced in code, not in the prompt.</p>
+          <div class="body">
+            <p>
+              It runs swing and intraday strategies with configurable approval modes and Alpaca bracket orders.
+              Per-trade and daily loss limits, trade-count caps, and duplicate-order protection all sit in code.
+              Before any strategy goes live it has to pass <strong>five-year historical replays</strong>.
+            </p>
+            <p>
+              I audited an open-source trading skill and found safety controls that existed only as prompts, then
+              wrote nine failing tests to prove the gaps. An independent heartbeat watchdog restarted the agent
+              <strong>within 20 seconds</strong> in crash and hang drills.
+            </p>
+          </div>
+          <a class="repo" href="https://github.com/phhvardhan/Tradebot" target="_blank" rel="noopener noreferrer">View the code on GitHub ↗</a>
+          <dl class="figures">
+            <div><dt>177</dt><dd>unit tests</dd></div>
+            <div><dt>20 s</dt><dd>watchdog restart in crash drills</dd></div>
+            <div><dt>11</dt><dd>sub-skills audited for safety</dd></div>
+          </dl>
+        </div>
+        <figure>
+          <div class="flow">
+            <div class="node">Strategy signal<small>swing · intraday</small></div>
+            <div class="down"></div>
+            <div class="node">Approval mode<small>configurable</small></div>
+            <div class="down"></div>
+            <div class="node key">Risk checks in code<small>loss limits · trade caps · duplicates · stale quotes</small></div>
+            <div class="down"></div>
+            <div class="node">Alpaca bracket order<small>paper trading</small></div>
+            <p class="stage">Always running</p>
+            <div class="node plain">Heartbeat watchdog<small>restarts the agent within 20 s</small></div>
+          </div>
+          <figcaption>Python · Claude Agent Skills · MCP · SQLite · launchd / systemd</figcaption>
+        </figure>
+      </article>
     </div>
   </section>
 
@@ -537,29 +565,6 @@
         <div class="row"><div class="when">Data engineering</div><div>Spark / PySpark, Airflow, Kafka, Hadoop, Hive, dbt, Informatica, Delta Lake, ETL / ELT</div></div>
         <div class="row"><div class="when">Cloud and platforms</div><div>AWS (Bedrock AgentCore, EC2, Glue, Redshift, RDS PostgreSQL), Azure (Azure OpenAI), Snowflake</div></div>
         <div class="row"><div class="when">BI and tools</div><div>Power BI, Tableau, Jira</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SIDE PROJECT -->
-  <section id="project">
-    <div class="wrap">
-      <h2>Side project</h2>
-      <div class="side">
-        <h3>Signal Desk, an autonomous paper-trading agent</h3>
-        <p class="stack">Python · Claude Agent Skills · MCP · Alpaca API · SQLite · launchd / systemd</p>
-        <p>
-          A paper-trading agent for swing and intraday strategies with configurable approval modes and Alpaca
-          bracket orders. Per-trade and daily loss limits, trade-count caps, and duplicate-order protection are
-          <strong>enforced in code, not in the prompt</strong>.
-        </p>
-        <p>
-          I audited an open-source trading skill spanning 11 sub-skills, found safety controls that lived only in
-          prompts, and wrote nine failing tests to expose the gaps; four audited modules are reused, pinned by SHA-256.
-          An independent heartbeat watchdog restarted the agent <strong>within 20 seconds</strong> in crash and hang
-          drills. Stale-quote and price-jump guards, five-year historical replays before any strategy goes live, and
-          <strong>177 unit tests</strong> back it up.
-        </p>
       </div>
     </div>
   </section>
@@ -635,7 +640,7 @@
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { threshold: 0.15 });
-  document.querySelectorAll('section h2, .intro, .case > div, figure, .row, .side, .contact .mail, .contact ul').forEach(el => {
+  document.querySelectorAll('section h2, .intro, .case > div, figure, .row, .contact .mail, .contact ul').forEach(el => {
     el.classList.add('r');
     if (el.classList.contains('row')) el.style.setProperty('--d', [...el.parentNode.children].indexOf(el));
     io.observe(el);
