@@ -6,7 +6,7 @@ Personal portfolio: selected work, experience, and skills.
 
 ## About me
 
-AI/ML Engineer in Austin, TX with 4+ years across data and AI engineering, including 1.5+ years building LLM-powered agents, multi-agent systems, and production RAG pipelines in Python. Technical lead for two AI agent products at Johnson & Johnson (AWS Bedrock AgentCore, Azure OpenAI). Previously served 5M+ monthly LLM inferences at Wells Fargo, with an evaluation framework that cut hallucinations by ~30%.
+AI/ML Engineer in Austin, TX with 5+ years across data and AI engineering, including 1.5+ years building production Generative AI: LLM-powered agents, multi-agent systems, and agentic RAG pipelines in Python. Technical lead for two enterprise AI agent products at Johnson & Johnson (AWS Bedrock AgentCore, Azure OpenAI). Previously served 5M+ monthly LLM inferences at Wells Fargo, with an evaluation framework that cut hallucinations by ~30%.
 
 ## About the site
 

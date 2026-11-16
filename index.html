@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hema Harsha Vardhan Peela, AI/ML Engineer</title>
-  <meta name="description" content="AI/ML Engineer in Austin, TX. Technical lead for two AI agent products at Johnson &amp; Johnson. Previously production RAG at Wells Fargo."/>
+  <meta name="description" content="AI/ML Engineer in Austin, TX building Generative AI, agentic AI, and RAG systems. Technical lead for two enterprise AI agent products at Johnson &amp; Johnson. Previously production agentic RAG at Wells Fargo."/>
   <meta property="og:title" content="Hema Harsha Vardhan Peela, AI/ML Engineer"/>
   <meta property="og:description" content="I build AI agents that answer from real data, and the pipelines underneath them."/>
   <meta property="og:type" content="website"/>
@@ -157,6 +157,7 @@
     .side h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.15; }
     .side .stack { font-size: 14px; color: var(--muted); margin: 6px 0 14px; }
     .side p { color: var(--muted); }
+    .side p + p { margin-top: 14px; }
     .side p strong { color: var(--ink); font-weight: 500; }
 
     /* Contact */
@@ -314,12 +315,12 @@
 <main>
   <div class="hero-wrap">
   <div class="wrap hero">
-    <p class="where">AI/ML Engineer · Austin, TX</p>
+    <p class="where">AI/ML Engineer · Generative AI, agentic AI, RAG · Austin, TX</p>
     <h1>I build AI agents that answer from <em>real data</em>, and the pipelines underneath them.</h1>
     <p class="lede">
-      I'm the <strong>technical lead for two AI agent products at Johnson &amp; Johnson</strong>.
-      Before that I ran a RAG pipeline at Wells Fargo that served <strong>5M+ LLM inferences a month</strong>,
-      after starting out in large-scale data engineering. Four years in total.
+      I'm the <strong>technical lead for two enterprise AI agent products at Johnson &amp; Johnson</strong>.
+      Before that I ran an agentic RAG pipeline at Wells Fargo that served <strong>5M+ LLM inferences a month</strong>,
+      after starting out in large-scale data engineering. Five years in total.
     </p>
     <div class="links">
       <a class="primary" href="Hema_Harsha_Vardhan_Peela_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
@@ -346,12 +347,12 @@
         <div>
           <p class="meta">Johnson &amp; Johnson · 2026 · Technical lead, team of four</p>
           <h3>JJ Customer Connect AI Agent</h3>
-          <p class="what">An assistant that answers B2B customers' order, invoice, and product questions from live J&amp;J data.</p>
+          <p class="what">A production conversational AI agent that answers B2B customers' order, invoice, and product questions from live J&amp;J data.</p>
           <div class="body">
             <p>
-              Built with Langflow and FastAPI. A router sends each question down a semantic or an
-              analytical path, and <strong>eight live J&amp;J APIs</strong> ground the answer in that
-              customer's real-time data.
+              Built with Langflow, FastAPI, and LLM tool calling. An intent-routing layer sends each question
+              to semantic retrieval or analytical processing, and <strong>eight live J&amp;J REST APIs</strong>
+              ground the answer in that customer's real-time data.
             </p>
             <p>
               I deployed the custom backend and the Langflow workflow on <strong>AWS Bedrock AgentCore</strong>
@@ -369,12 +370,12 @@
           <div class="flow">
             <div class="node">Customer question<small>OAuth 2.0 token checked first</small></div>
             <div class="down"></div>
-            <div class="node key">Router</div>
+            <div class="node key">Intent router</div>
             <div class="stem"></div>
             <div class="fork"></div>
             <div class="pair">
-              <div class="node">Semantic path</div>
-              <div class="node">Analytical path</div>
+              <div class="node">Semantic retrieval</div>
+              <div class="node">Analytical processing</div>
             </div>
             <div class="join"></div>
             <div class="down"></div>
@@ -398,22 +399,27 @@
               <strong>one implementation file and one registry entry</strong>.
             </p>
             <p>
-              Outputs are grounded in the source input, which removed invented names, dates, and figures.
-              Test coverage is calculated from story-to-test mappings. Reviewers get section-level edit
-              suggestions, open-question resolution, and recorded sign-off before export.
+              An AI router recommends the best-fit agent with its reasoning and verbatim source quotes,
+              and every quote is checked against the input. LLM outputs are grounded in the source, which
+              removed invented names, dates, and figures; test counts are computed in code, not trusted from the model.
+            </p>
+            <p>
+              Requirement IDs (REQ, US, DES, TC) carry through <strong>Minutes → User Stories → Design → Test Cases</strong>,
+              so every test case traces back to its source requirement. Human-in-the-loop review adds
+              section-level edit suggestions, open-question resolution, and recorded sign-off before export.
             </p>
           </div>
           <dl class="figures">
             <div><dt>38</dt><dd>backend tests, plus sample inputs for every agent</dd></div>
             <div><dt>1 + 1</dt><dd>file and registry entry to add an agent</dd></div>
-            <div><dt>3</dt><dd>export formats: Word, Excel, PowerPoint</dd></div>
+            <div><dt>4</dt><dd>traced stages, requirement to test case</dd></div>
           </dl>
         </div>
         <figure>
           <div class="flow">
             <div class="node">Requirements in<small>documents · recordings · text</small></div>
             <div class="down"></div>
-            <div class="node key">Agent registry<small>recommends which agents to run</small></div>
+            <div class="node key">AI router<small>best-fit agent · reasoning · verified quotes</small></div>
             <div class="stem"></div>
             <div class="fork"></div>
             <div class="pair">
@@ -422,9 +428,9 @@
             </div>
             <div class="join"></div>
             <div class="down"></div>
-            <div class="node">Review and approval<small>edit suggestions · open questions · sign-off</small></div>
+            <div class="node">Human-in-the-loop review<small>edit suggestions · open questions · sign-off</small></div>
             <div class="down"></div>
-            <div class="node">Export<small>Word · Excel · PowerPoint</small></div>
+            <div class="node">Traced outputs<small>REQ → US → DES → TC · Word · Excel · PowerPoint</small></div>
           </div>
           <figcaption>Every agent extends one shared base class</figcaption>
         </figure>
@@ -432,9 +438,9 @@
 
       <article class="case">
         <div>
-          <p class="meta">Wells Fargo · 2025 to 2026 · AI/ML Engineer</p>
+          <p class="meta">Wells Fargo · 2024 to 2026 · AI/ML Engineer</p>
           <h3>Agentic RAG, and the evaluation around it</h3>
-          <p class="what">A production retrieval pipeline for customer service and cross-functional teams, in a regulated environment.</p>
+          <p class="what">A production agentic RAG pipeline for customer service and cross-functional teams, in a regulated financial environment.</p>
           <div class="body">
             <p>
               The pipeline does multi-step reasoning over Pinecone vector search, OpenAI embeddings, and
@@ -444,8 +450,8 @@
             <p>
               I designed the evaluation framework that gates releases: LLM-as-judge scoring, canary
               deployments, and audit-driven feedback loops. I also shipped
-              <strong>7 production NLP and LLM models</strong>, fine-tuned with LoRA and deployed through
-              Airflow CI/CD with PII guardrails.
+              <strong>7 production NLP and LLM models</strong>, fine-tuned with LoRA (parameter-efficient fine-tuning) and deployed
+              through Airflow CI/CD with PII guardrails.
             </p>
           </div>
           <dl class="figures">
@@ -490,25 +496,18 @@
           <div class="when">Aug 2026 to present</div>
           <div>
             <h3>AI/ML Engineer, Technical Lead <span>· Johnson &amp; Johnson</span></h3>
-            <p>Leading two AI agent products, JJ Customer Connect and SAVIA, built on AWS and Azure OpenAI.</p>
+            <p>Leading two enterprise AI agent products, JJ Customer Connect and SAVIA, built on AWS Bedrock AgentCore and Azure OpenAI.</p>
           </div>
         </div>
         <div class="row">
-          <div class="when">May 2025 to Jul 2026</div>
+          <div class="when">Nov 2024 to Jul 2026</div>
           <div>
             <h3>AI/ML Engineer <span>· Wells Fargo</span></h3>
             <p>Production agentic RAG at 5M+ inferences a month, an LLM evaluation framework, and 7 shipped models.</p>
           </div>
         </div>
         <div class="row">
-          <div class="when">Nov 2024 to May 2025</div>
-          <div>
-            <h3>Data Engineer Intern <span>· YourBook Team</span></h3>
-            <p>Built 10+ Power BI and Tableau dashboards with SQL, Python, and R validation checks, and kept 50+ data quality issues out of stakeholder reports.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="when">Aug 2021 to Jul 2023</div>
+          <div class="when">Aug 2020 to Jul 2023</div>
           <div>
             <h3>Data Engineer <span>· Cognizant</span></h3>
             <p>Raised pipeline success from 91% to 98%+ across 50TB+ of data on Hadoop, Hive, and Kafka. Supported 2.5M+ daily transactions and unified 150K+ patient records a month with PII redaction.</p>
@@ -531,12 +530,13 @@
       <h2>Skills</h2>
       <div class="rows">
         <div class="row"><div class="when">Languages</div><div>Python, SQL, R</div></div>
-        <div class="row"><div class="when">AI/ML and LLMs</div><div>LLMs, RAG, agentic AI, multi-agent systems, LLM evaluation (LLM-as-judge), LoRA fine-tuning, NLP, PyTorch, TensorFlow, Azure OpenAI, OpenAI, Groq, Whisper, Langflow</div></div>
-        <div class="row"><div class="when">Retrieval</div><div>Pinecone, vector databases, embeddings, knowledge graphs</div></div>
-        <div class="row"><div class="when">Backend and APIs</div><div>FastAPI, REST APIs, JWT authentication, LDAP / Active Directory, OAuth 2.0</div></div>
+        <div class="row"><div class="when">Generative AI and LLMs</div><div>LLMs, prompt engineering, RAG, agentic AI, AI agents, multi-agent systems, tool / function calling, LLM evaluation (LLM-as-judge), guardrails, LoRA / PEFT fine-tuning, NLP, Azure OpenAI, OpenAI, Groq, Whisper, Langflow, Claude Agent Skills, MCP, PyTorch, TensorFlow</div></div>
+        <div class="row"><div class="when">Retrieval and search</div><div>Pinecone, vector databases, embeddings, semantic search, knowledge graphs</div></div>
+        <div class="row"><div class="when">Backend and APIs</div><div>FastAPI, REST APIs, Alpaca API, SQLite, OAuth 2.0, JWT authentication, LDAP / Active Directory</div></div>
+        <div class="row"><div class="when">MLOps and LLMOps</div><div>CI/CD, Airflow, GitHub Actions, canary deployments, model deployment, monitoring</div></div>
         <div class="row"><div class="when">Data engineering</div><div>Spark / PySpark, Airflow, Kafka, Hadoop, Hive, dbt, Informatica, Delta Lake, ETL / ELT</div></div>
-        <div class="row"><div class="when">Cloud and platforms</div><div>AWS (Bedrock AgentCore, EC2, Glue, Redshift, RDS PostgreSQL), Snowflake</div></div>
-        <div class="row"><div class="when">DevOps and BI</div><div>CI/CD, GitHub Actions, Jira, Power BI, Tableau</div></div>
+        <div class="row"><div class="when">Cloud and platforms</div><div>AWS (Bedrock AgentCore, EC2, Glue, Redshift, RDS PostgreSQL), Azure (Azure OpenAI), Snowflake</div></div>
+        <div class="row"><div class="when">BI and tools</div><div>Power BI, Tableau, Jira</div></div>
       </div>
     </div>
   </section>
@@ -546,13 +546,19 @@
     <div class="wrap">
       <h2>Side project</h2>
       <div class="side">
-        <h3>NYC Taxi Demand Pipeline</h3>
-        <p class="stack">PySpark · Delta Lake · Snowflake · dbt · Airflow · GitHub Actions</p>
+        <h3>Signal Desk, an autonomous paper-trading agent</h3>
+        <p class="stack">Python · Claude Agent Skills · MCP · Alpaca API · SQLite · launchd / systemd</p>
         <p>
-          An end-to-end medallion pipeline (bronze, silver, gold) that turns <strong>9.5M raw taxi trips</strong>
-          into analytics-ready demand data, loaded into Snowflake and orchestrated with Airflow.
-          Tracking down a Snowflake file-partitioning bug got rid of duplicate rows, missing records, and
-          wrong dates. <strong>32 dbt tests</strong> now run on every change through GitHub Actions.
+          A paper-trading agent for swing and intraday strategies with configurable approval modes and Alpaca
+          bracket orders. Per-trade and daily loss limits, trade-count caps, and duplicate-order protection are
+          <strong>enforced in code, not in the prompt</strong>.
+        </p>
+        <p>
+          I audited an open-source trading skill spanning 11 sub-skills, found safety controls that lived only in
+          prompts, and wrote nine failing tests to expose the gaps; four audited modules are reused, pinned by SHA-256.
+          An independent heartbeat watchdog restarted the agent <strong>within 20 seconds</strong> in crash and hang
+          drills. Stale-quote and price-jump guards, five-year historical replays before any strategy goes live, and
+          <strong>177 unit tests</strong> back it up.
         </p>
       </div>
     </div>
